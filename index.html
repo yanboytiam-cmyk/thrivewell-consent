@@ -789,7 +789,11 @@ function construirePdf(d){
   paire('Phone number', d.phoneNumber, cx, hautBoite + 76);
   const cx2 = L + 190;
   paire('Record number', d.medicalRecordNumber, cx2, hautBoite + 20);
-  paire('Date signed', d.dateSigned, cx2, hautBoite + 48);
+  /* L'heure fait partie de la signature, pas du confort : c'est elle qui situe
+     le consentement par rapport a la consultation. Le fuseau est ecrit en
+     clair, sinon une heure seule ne veut rien dire dans un dossier. */
+  paire('Date signed', d.dateSigned + '  ' + d.timeSigned + ' ' + d.fuseau,
+        cx2, hautBoite + 48);
   paire('Reference', d.reference, cx2, hautBoite + 76);
   if (d.photo){
     try {
@@ -821,7 +825,8 @@ function construirePdf(d){
       doc.text(sous, L, y + 79);
     }
     doc.setFontSize(7.6); doc.setTextColor(...GRIS);
-    doc.text('Signed ' + d.dateSigned, L + 260, y + 68);
+    doc.text('Signed ' + d.dateSigned + ' at ' + d.timeSigned + ' ' + d.fuseau,
+             L + 260, y + 68);
     y += 96;
   };
   ligneSignature('Client signature', d.signature, d.fullName);
@@ -854,6 +859,11 @@ function donnees(){
     isMinor: mineur,
     dateSigned: maintenant.toLocaleDateString('en-US', {timeZone:'America/New_York'}),
     timeSigned: maintenant.toLocaleTimeString('en-US', {timeZone:'America/New_York', hour12:false}),
+    // EDT l'ete, EST l'hiver : on le demande au navigateur plutot que de
+    // l'ecrire en dur, sinon la moitie de l'annee le document ment.
+    fuseau: (new Intl.DateTimeFormat('en-US', {timeZone:'America/New_York',
+              timeZoneName:'short'}).formatToParts(maintenant)
+              .find(p => p.type === 'timeZoneName') || {}).value || 'ET',
     reference: 'TW-' + maintenant.getFullYear()
              + String(maintenant.getMonth()+1).padStart(2,'0')
              + String(maintenant.getDate()).padStart(2,'0') + '-'
