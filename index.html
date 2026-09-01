@@ -483,6 +483,10 @@ lecture.appendChild(fin);
    "j'ai lu et je comprends" est une case cochee sans rien avoir lu. */
 let luJusquAuBout = false;
 function suivreLecture(){
+  /* Tant que l'etape est masquee, le bloc mesure zero : le reste a lire vaut
+     zero aussi, et on debloquerait la case sans que personne n'ait rien lu.
+     Un simple changement d'orientation suffisait a declencher ce cas. */
+  if (!lecture.clientHeight || !lecture.scrollHeight) return;
   const reste = lecture.scrollHeight - lecture.clientHeight;
   const avance = reste <= 4 ? 1 : Math.min(1, lecture.scrollTop / reste);
   $('jauge-barre').style.width = Math.round(avance * 100) + '%';
