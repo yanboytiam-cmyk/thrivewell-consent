@@ -33,6 +33,9 @@ body{
   background:var(--creme);color:var(--texte);line-height:1.55;font-size:15px;
   padding-bottom:env(safe-area-inset-bottom);
 }
+/* Le bandeau d'installation flotte au-dessus du bas de page : sans cette
+   reserve il recouvre les boutons Suivant et Envoyer sur un petit ecran. */
+body.avec-bandeau{padding-bottom:calc(92px + env(safe-area-inset-bottom))}
 .enveloppe{max-width:620px;margin:0 auto;padding:0 16px 28px}
 
 /* ---------- En-tete ---------- */
@@ -929,14 +932,17 @@ function proposerInstallation(){
   let masque = false;
   try { masque = localStorage.getItem(CLE_INSTALL) === '1'; } catch (_) {}
   if (masque || installee()) return;
-  if (invite || estIos) $('bandeau-install').hidden = false;
+  if (invite || estIos){
+    $('bandeau-install').hidden = false;
+    document.body.classList.add('avec-bandeau');
+  }
 }
 window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault(); invite = e; proposerInstallation();
 });
 $('installer').addEventListener('click', async () => {
   if (invite){
-    $('bandeau-install').hidden = true;
+    masquerBandeau();
     invite.prompt(); await invite.userChoice; invite = null;
   } else {
     // iOS n'expose aucune invite : on montre le chemin exact, c'est tout ce
@@ -945,8 +951,12 @@ $('installer').addEventListener('click', async () => {
   }
 });
 $('fermer-ios').addEventListener('click', () => { $('modale-ios').hidden = true; });
-$('fermer-install').addEventListener('click', () => {
+function masquerBandeau(){
   $('bandeau-install').hidden = true;
+  document.body.classList.remove('avec-bandeau');
+}
+$('fermer-install').addEventListener('click', () => {
+  masquerBandeau();
   try { localStorage.setItem(CLE_INSTALL, '1'); } catch (_) {}
 });
 setTimeout(proposerInstallation, 2500);
