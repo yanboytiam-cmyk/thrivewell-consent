@@ -1,167 +1,199 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Informed consent for psychiatric and mental health services at ThriveWell Psychiatric Collaborative Services LLC, Columbia MD.">
 <meta name="theme-color" content="#2E4A3D">
 <meta name="robots" content="noindex">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="ThriveWell">
+<meta name="mobile-web-app-capable" content="yes">
 <title>Informed Consent &mdash; ThriveWell Psychiatric Collaborative</title>
-<link rel="icon" href="icone.png">
-<link rel="apple-touch-icon" href="icone.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
   --vert:#2E4A3D; --vert-fonce:#1F3529; --vert-clair:#5B7A69;
-  --or:#B08D3F; --or-clair:#D9C08A;
+  --or:#B08D3F; --or-pale:#EBDFC4;
   --creme:#FAF8F4; --carte:#FFFFFF; --bord:#E4DED2;
   --texte:#22302A; --texte-doux:#63706A;
   --erreur:#B3261E; --ok:#2E7D53;
-  --rayon:14px; --ombre:0 1px 3px rgba(31,53,41,.06),0 8px 28px rgba(31,53,41,.07);
+  --rayon:12px; --ombre:0 1px 2px rgba(31,53,41,.05),0 6px 22px rgba(31,53,41,.06);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%}
 body{
   font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
-  background:var(--creme); color:var(--texte); line-height:1.6;
-  font-size:16px; padding:0 0 48px;
+  background:var(--creme);color:var(--texte);line-height:1.55;font-size:15px;
+  padding-bottom:env(safe-area-inset-bottom);
 }
-.enveloppe{max-width:680px;margin:0 auto;padding:0 18px}
+.enveloppe{max-width:620px;margin:0 auto;padding:0 16px 28px}
 
 /* ---------- En-tete ---------- */
-header{background:var(--carte);border-bottom:1px solid var(--bord);padding:22px 0 18px;text-align:center}
-header img{width:190px;height:auto;display:block;margin:0 auto}
-header .lieu{font-size:12.5px;color:var(--texte-doux);margin-top:10px;letter-spacing:.02em}
+header{background:var(--carte);border-bottom:1px solid var(--bord);
+  padding:calc(14px + env(safe-area-inset-top)) 0 12px;text-align:center}
+header img{width:150px;height:auto;display:block;margin:0 auto}
+header .lieu{font-size:11.5px;color:var(--texte-doux);margin-top:7px;letter-spacing:.02em}
 
-/* ---------- Progression ---------- */
-.progression{display:flex;gap:6px;max-width:680px;margin:18px auto 0;padding:0 18px}
-.progression span{flex:1;height:4px;border-radius:99px;background:var(--bord);transition:background .3s}
+.progression{display:flex;gap:5px;max-width:620px;margin:12px auto 0;padding:0 16px}
+.progression span{flex:1;height:3px;border-radius:99px;background:var(--bord);transition:background .3s}
 .progression span.faite{background:var(--or)}
 .progression span.ici{background:var(--vert)}
-.etape-titre{
-  font-family:"Cormorant Garamond",Georgia,serif;font-size:30px;line-height:1.2;
-  font-weight:600;color:var(--vert-fonce);margin:22px 0 4px;letter-spacing:-.01em;
+
+h1.etape-titre{
+  font-family:"Cormorant Garamond",Georgia,serif;font-size:26px;line-height:1.15;
+  font-weight:600;color:var(--vert-fonce);margin:18px 0 3px;letter-spacing:-.01em;
 }
-.etape-sous{color:var(--texte-doux);font-size:14.5px;margin-bottom:20px}
+.etape-sous{color:var(--texte-doux);font-size:13.5px;margin-bottom:14px}
 
 /* ---------- Cartes et champs ---------- */
 .carte{background:var(--carte);border:1px solid var(--bord);border-radius:var(--rayon);
-  padding:20px;box-shadow:var(--ombre);margin-bottom:16px}
-.duo{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-@media(max-width:520px){.duo{grid-template-columns:1fr}}
-.champ{margin-bottom:16px}
+  padding:16px;box-shadow:var(--ombre);margin-bottom:12px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.champ{margin-bottom:13px}
 .champ:last-child{margin-bottom:0}
-label{display:block;font-size:13.5px;font-weight:600;margin-bottom:6px;color:var(--vert-fonce)}
+label{display:block;font-size:12.5px;font-weight:600;margin-bottom:5px;color:var(--vert-fonce)}
 label .option{font-weight:400;color:var(--texte-doux)}
-input[type=text],input[type=tel],input[type=date],select{
-  width:100%;padding:13px 14px;font:inherit;font-size:16px;color:var(--texte);
-  background:var(--creme);border:1.5px solid var(--bord);border-radius:10px;
+input[type=text],input[type=tel],select{
+  width:100%;padding:11px 12px;font:inherit;font-size:16px;color:var(--texte);
+  background:var(--creme);border:1.5px solid var(--bord);border-radius:9px;
   transition:border-color .15s,background .15s;
 }
 input:focus,select:focus{outline:none;border-color:var(--vert);background:#fff}
 input.faux,select.faux{border-color:var(--erreur);background:#FDF5F4}
-.aide{font-size:12.5px;color:var(--texte-doux);margin-top:5px}
-.erreur{display:none;font-size:12.5px;color:var(--erreur);margin-top:5px;font-weight:500}
+input.bon{border-color:var(--vert-clair)}
+.aide{font-size:11.5px;color:var(--texte-doux);margin-top:4px}
+.erreur{display:none;font-size:11.5px;color:var(--erreur);margin-top:4px;font-weight:500}
 .erreur.visible{display:block}
 
-/* ---------- Consentement ---------- */
-.intro-consentement{
-  background:var(--carte);border:1px solid var(--bord);border-left:3px solid var(--or);
-  border-radius:var(--rayon);padding:16px 18px;margin-bottom:14px;font-size:14.5px;color:var(--texte-doux)
+/* ---------- Consentement en un seul bloc a lire ---------- */
+.lecture{
+  background:var(--carte);border:1px solid var(--bord);border-radius:var(--rayon);
+  height:46vh;min-height:280px;max-height:520px;overflow-y:auto;
+  padding:16px;box-shadow:var(--ombre);-webkit-overflow-scrolling:touch;position:relative;
 }
-.outils{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;gap:12px}
-.compteur{font-size:12.5px;color:var(--texte-doux)}
-.lien-outil{background:none;border:none;font:inherit;font-size:13px;font-weight:600;
-  color:var(--vert);cursor:pointer;padding:6px 2px;text-decoration:underline;text-underline-offset:3px}
-details{background:var(--carte);border:1px solid var(--bord);border-radius:10px;margin-bottom:8px;overflow:hidden}
-details[open]{border-color:var(--or-clair)}
-summary{
-  display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;
-  font-weight:600;font-size:14.5px;color:var(--vert-fonce);list-style:none;
-}
-summary::-webkit-details-marker{display:none}
-summary::after{content:"";margin-left:auto;width:9px;height:9px;flex:none;
-  border-right:2px solid var(--vert-clair);border-bottom:2px solid var(--vert-clair);
-  transform:rotate(45deg) translateY(-2px);transition:transform .2s}
-details[open] summary::after{transform:rotate(225deg) translateY(-2px)}
-summary .num{width:24px;height:24px;flex:none;border-radius:50%;background:var(--creme);
-  border:1px solid var(--bord);display:grid;place-items:center;font-size:11.5px;color:var(--vert-clair)}
-details[open] summary .num{background:var(--vert);border-color:var(--vert);color:#fff}
-details p{padding:0 16px 15px 52px;font-size:14.5px;color:var(--texte-doux)}
-details p+p{padding-top:0;margin-top:-6px}
-@media(max-width:520px){details p{padding-left:16px}}
+.lecture h2{font-family:"Cormorant Garamond",Georgia,serif;font-size:19px;color:var(--vert-fonce);
+  margin:18px 0 5px;font-weight:600}
+.lecture h2:first-child{margin-top:0}
+.lecture h2 .puce{color:var(--or);font-size:13px;font-family:Inter,sans-serif;margin-right:6px}
+.lecture p{font-size:13.5px;color:var(--texte-doux);margin-bottom:7px}
+.lecture .fin{margin-top:20px;padding-top:14px;border-top:1px solid var(--or-pale);
+  font-size:12.5px;color:var(--vert);font-weight:600;text-align:center}
+.jauge{display:flex;align-items:center;gap:9px;margin:9px 2px 0;font-size:11.5px;color:var(--texte-doux)}
+.jauge .barre{flex:1;height:3px;background:var(--bord);border-radius:99px;overflow:hidden}
+.jauge .barre i{display:block;height:100%;width:0;background:var(--or);transition:width .12s linear}
+.jauge.lu{color:var(--ok)}
+.jauge.lu .barre i{background:var(--ok)}
 
 .accord{
-  display:flex;gap:14px;align-items:flex-start;background:var(--carte);
-  border:1.5px solid var(--bord);border-radius:var(--rayon);padding:18px;margin-top:16px;cursor:pointer
+  display:flex;gap:11px;align-items:flex-start;background:var(--carte);
+  border:1.5px solid var(--bord);border-radius:var(--rayon);padding:14px;margin-top:12px;
+  cursor:pointer;transition:opacity .2s,border-color .2s;
 }
+.accord.verrouille{opacity:.5;cursor:not-allowed}
 .accord.coche{border-color:var(--vert);background:#F4F8F5}
 .accord.faux{border-color:var(--erreur)}
-.accord input{width:22px;height:22px;flex:none;margin-top:1px;accent-color:var(--vert)}
-.accord span{font-size:14.5px;color:var(--texte)}
+.accord input{width:20px;height:20px;flex:none;margin-top:1px;accent-color:var(--vert)}
+.accord span{font-size:13px;color:var(--texte)}
 
-/* ---------- Photo et signature ---------- */
-.zone-photo{text-align:center}
-.apercu{width:150px;height:186px;margin:0 auto 14px;border-radius:12px;border:1.5px dashed var(--bord);
-  background:var(--creme);display:grid;place-items:center;overflow:hidden;color:var(--texte-doux);font-size:13px}
+/* ---------- Photo ---------- */
+.photo-ligne{display:flex;gap:14px;align-items:center}
+.apercu{width:78px;height:96px;flex:none;border-radius:9px;border:1.5px dashed var(--bord);
+  background:var(--creme);display:grid;place-items:center;overflow:hidden}
 .apercu img{width:100%;height:100%;object-fit:cover}
 .apercu.pris{border-style:solid;border-color:var(--vert)}
-/* Sans user-select:none, un trace un peu large surligne le texte autour du
-   cadre au lieu de signer. Au doigt, c'est le comportement par defaut. */
-.signature-boite{border:1.5px solid var(--bord);border-radius:12px;background:var(--creme);
+.apercu svg{width:26px;height:26px;stroke:var(--vert-clair);fill:none;stroke-width:1.5}
+.photo-texte{flex:1;min-width:0}
+.bouton-photo{display:inline-flex;align-items:center;gap:7px;padding:9px 14px;
+  background:var(--creme);color:var(--vert-fonce);border:1.5px solid var(--vert-clair);
+  border-radius:9px;font-size:13.5px;font-weight:600;cursor:pointer;margin-top:7px}
+.bouton-photo svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8}
+input[type=file]{position:absolute;width:1px;height:1px;opacity:0}
+
+/* ---------- Signature ---------- */
+.signature-boite{border:1.5px solid var(--bord);border-radius:9px;background:var(--creme);
   position:relative;overflow:hidden;touch-action:none;
   user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
 .signature-boite.signee{border-color:var(--vert);background:#fff}
 .signature-boite.faux{border-color:var(--erreur)}
-canvas{display:block;width:100%;height:170px;touch-action:none;cursor:crosshair}
+canvas{display:block;width:100%;height:130px;touch-action:none}
 .consigne{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;
-  color:var(--texte-doux);font-size:14px}
+  color:var(--texte-doux);font-size:13px}
 .signature-boite.signee .consigne{display:none}
-.sous-signature{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.sous-signature{display:flex;justify-content:space-between;align-items:center;margin-top:6px}
 
 /* ---------- Boutons ---------- */
-.actions{display:flex;gap:12px;margin-top:22px}
+.actions{display:flex;gap:9px;margin-top:16px}
 button.principal,button.second{
-  flex:1;padding:15px 18px;font:inherit;font-size:15.5px;font-weight:600;
-  border-radius:11px;cursor:pointer;border:1.5px solid transparent;transition:all .15s
+  padding:11px 20px;font:inherit;font-size:14.5px;font-weight:600;
+  border-radius:9px;cursor:pointer;border:1.5px solid transparent;transition:all .15s
 }
-button.principal{background:var(--vert);color:#fff}
+button.principal{background:var(--vert);color:#fff;flex:1}
 button.principal:hover:not(:disabled){background:var(--vert-fonce)}
-button.principal:disabled{opacity:.55;cursor:not-allowed}
-button.second{background:transparent;color:var(--vert);border-color:var(--bord);flex:0 0 34%}
+button.principal:disabled{opacity:.45;cursor:not-allowed}
+button.second{background:transparent;color:var(--vert);border-color:var(--bord);flex:0 0 88px}
 button.second:hover{border-color:var(--vert-clair)}
-button.mini{background:transparent;border:none;font:inherit;font-size:13px;font-weight:600;
-  color:var(--vert);cursor:pointer;text-decoration:underline;text-underline-offset:3px;padding:4px}
-.bouton-photo{display:inline-block;padding:12px 22px;background:var(--vert);color:#fff;
-  border-radius:11px;font-size:15px;font-weight:600;cursor:pointer}
-input[type=file]{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden}
+button.mini{background:transparent;border:none;font:inherit;font-size:12.5px;font-weight:600;
+  color:var(--vert-clair);cursor:pointer;text-decoration:underline;text-underline-offset:3px;padding:3px}
 
 /* ---------- Ecrans d'etat ---------- */
-.centre{text-align:center;padding:46px 20px}
-.rond{width:64px;height:64px;margin:0 auto 20px;border-radius:50%;display:grid;place-items:center}
+.centre{text-align:center;padding:40px 16px}
+.rond{width:56px;height:56px;margin:0 auto 16px;border-radius:50%;display:grid;place-items:center}
 .rond.attente{border:3px solid var(--bord);border-top-color:var(--vert);animation:tourne 1s linear infinite}
 @keyframes tourne{to{transform:rotate(360deg)}}
-.rond.fini{background:var(--ok);color:#fff;font-size:30px}
-.rond.rate{background:var(--erreur);color:#fff;font-size:30px}
-.centre h2{font-family:"Cormorant Garamond",Georgia,serif;font-size:28px;color:var(--vert-fonce);margin-bottom:8px}
-.centre p{color:var(--texte-doux);font-size:15px;max-width:420px;margin:0 auto 22px}
-.telecharger{display:inline-block;padding:15px 30px;background:var(--vert);color:#fff;
-  border-radius:11px;font-weight:600;text-decoration:none;font-size:15.5px}
-footer{text-align:center;font-size:12px;color:var(--texte-doux);
-  margin-top:48px;padding-top:22px;border-top:1px solid var(--bord);line-height:1.7}
+.rond.fini{background:var(--ok);color:#fff;font-size:26px}
+.rond.rate{background:var(--erreur);color:#fff;font-size:26px}
+.centre h2{font-family:"Cormorant Garamond",Georgia,serif;font-size:25px;color:var(--vert-fonce);margin-bottom:6px}
+.centre p{color:var(--texte-doux);font-size:14px;max-width:400px;margin:0 auto 18px}
+.pile{display:flex;flex-direction:column;gap:9px;max-width:300px;margin:0 auto}
+.pile a,.pile button{
+  display:block;width:100%;padding:12px 18px;border-radius:9px;font-size:14.5px;
+  font-weight:600;text-decoration:none;text-align:center;cursor:pointer;border:1.5px solid transparent;
+  font-family:inherit;
+}
+.pile .plein{background:var(--vert);color:#fff}
+.pile .vide{background:transparent;color:var(--vert);border-color:var(--bord)}
+
+/* ---------- Installation ---------- */
+#bandeau-install{
+  position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));
+  max-width:596px;margin:0 auto;background:var(--vert-fonce);color:#fff;
+  border-radius:var(--rayon);padding:13px 15px;display:flex;align-items:center;gap:12px;
+  box-shadow:0 8px 30px rgba(31,53,41,.3);z-index:40;
+}
+#bandeau-install img{width:34px;height:34px;border-radius:8px;flex:none;background:#fff}
+#bandeau-install .txt{flex:1;min-width:0;font-size:12.5px;line-height:1.4}
+#bandeau-install .txt b{display:block;font-size:13.5px;margin-bottom:1px}
+#bandeau-install button{border:none;border-radius:8px;padding:8px 13px;font:inherit;
+  font-size:13px;font-weight:600;background:var(--or);color:#1F3529;cursor:pointer}
+#bandeau-install .fermer{background:transparent;color:#B8C9BE;padding:6px;font-size:17px}
+.modale{position:fixed;inset:0;background:rgba(31,53,41,.55);display:grid;place-items:end center;z-index:50}
+.modale .feuille{background:var(--carte);border-radius:16px 16px 0 0;width:100%;max-width:620px;
+  padding:20px 18px calc(22px + env(safe-area-inset-bottom))}
+.modale h3{font-family:"Cormorant Garamond",Georgia,serif;font-size:21px;color:var(--vert-fonce);margin-bottom:10px}
+.modale ol{margin:0 0 14px 18px;font-size:13.5px;color:var(--texte-doux)}
+.modale li{margin-bottom:6px}
+.modale .partage{display:inline-block;width:15px;height:15px;vertical-align:-2px}
+
+footer{text-align:center;font-size:11px;color:var(--texte-doux);
+  margin-top:26px;padding-top:16px;border-top:1px solid var(--bord);line-height:1.6}
 [hidden]{display:none!important}
 </style>
 </head>
 <body>
 
 <header>
-  <img src="logo.png" alt="ThriveWell Psychiatric Collaborative">
+  <img src="assets/thrivewell-logo.png" alt="ThriveWell Psychiatric Collaborative">
   <div class="lieu">8865 Stanford Blvd, 2nd Floor &middot; Columbia, MD 21045 &middot; 667.520.6074</div>
 </header>
 
-<div class="progression" id="progression" aria-hidden="true">
+<div class="progression" id="progression">
   <span class="ici"></span><span></span><span></span>
 </div>
 
@@ -176,59 +208,58 @@ footer{text-align:center;font-size:12px;color:var(--texte-doux);
     <div class="duo">
       <div class="champ">
         <label for="prenom">First name</label>
-        <input id="prenom" type="text" autocomplete="given-name" autocapitalize="words" required>
+        <input id="prenom" type="text" autocomplete="given-name" autocapitalize="words"
+               enterkeyhint="next" maxlength="40">
         <div class="erreur" id="err-prenom">Please enter your first name.</div>
       </div>
       <div class="champ">
         <label for="nom">Last name</label>
-        <input id="nom" type="text" autocomplete="family-name" autocapitalize="words" required>
+        <input id="nom" type="text" autocomplete="family-name" autocapitalize="words"
+               enterkeyhint="next" maxlength="40">
         <div class="erreur" id="err-nom">Please enter your last name.</div>
       </div>
     </div>
 
     <div class="champ">
       <label for="naissance">Date of birth</label>
-      <input id="naissance" type="date" autocomplete="bday" required>
-      <div class="aide" id="aide-age">Used to confirm whether a guardian signature is needed.</div>
-      <div class="erreur" id="err-naissance">Please enter a valid date of birth.</div>
+      <input id="naissance" type="text" inputmode="numeric" autocomplete="bday"
+             placeholder="MM / DD / YYYY" maxlength="14" enterkeyhint="next">
+      <div class="aide" id="aide-age">Type the numbers only, the slashes appear on their own.</div>
+      <div class="erreur" id="err-naissance">Enter a real date as MM/DD/YYYY.</div>
     </div>
 
     <div class="duo">
       <div class="champ">
         <label for="telephone">Phone number <span class="option">&mdash; optional</span></label>
-        <input id="telephone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(667) 520-6074">
+        <input id="telephone" type="tel" inputmode="tel" autocomplete="tel"
+               placeholder="(667) 520-6074" maxlength="14" enterkeyhint="next">
+        <div class="erreur" id="err-telephone">A US phone number has 10 digits.</div>
       </div>
       <div class="champ">
-        <label for="dossier">Medical record number <span class="option">&mdash; optional</span></label>
-        <input id="dossier" type="text" inputmode="numeric" placeholder="If you have one">
+        <label for="dossier">Record number <span class="option">&mdash; optional</span></label>
+        <input id="dossier" type="text" inputmode="numeric" placeholder="If you have one"
+               maxlength="20" enterkeyhint="done">
       </div>
     </div>
   </div>
 
-  <div class="actions">
-    <button class="principal" type="button" data-va="2">Continue</button>
-  </div>
+  <div class="actions"><button class="principal" type="button" data-va="2">Continue</button></div>
 </section>
 
 <!-- ══════════ 2. Consentement ══════════ -->
 <section id="etape2" hidden>
   <h1 class="etape-titre">Informed consent</h1>
-  <p class="etape-sous">Thirteen short sections. Open any of them to read the full wording.</p>
+  <p class="etape-sous">Read to the end of the document, then confirm below.</p>
 
-  <div class="intro-consentement">
-    This document explains what psychiatric and mental health care at ThriveWell involves,
-    what it can and cannot promise, and how your information is protected. Take the time you need.
+  <div class="lecture" id="lecture"></div>
+
+  <div class="jauge" id="jauge">
+    <span id="jauge-texte">Scroll to the end to continue</span>
+    <span class="barre"><i id="jauge-barre"></i></span>
   </div>
 
-  <div class="outils">
-    <span class="compteur" id="compteur">0 of 13 opened</span>
-    <button class="lien-outil" type="button" id="tout-ouvrir">Open all sections</button>
-  </div>
-
-  <div id="sections"></div>
-
-  <label class="accord" id="boite-accord">
-    <input type="checkbox" id="accepte">
+  <label class="accord verrouille" id="boite-accord">
+    <input type="checkbox" id="accepte" disabled>
     <span>I have read and understand this informed consent. I have had an opportunity to ask
       questions. I understand that ThriveWell is not an emergency service. I voluntarily consent
       to psychiatric and mental health services.</span>
@@ -244,14 +275,23 @@ footer{text-align:center;font-size:12px;color:var(--texte-doux);
 <!-- ══════════ 3. Photo et signature ══════════ -->
 <section id="etape3" hidden>
   <h1 class="etape-titre">Photo and signature</h1>
-  <p class="etape-sous">Last step. Both appear on your signed consent form.</p>
+  <p class="etape-sous">Both appear on your signed consent form.</p>
 
-  <div class="carte zone-photo">
-    <label style="text-align:left">Client photo</label>
-    <div class="apercu" id="apercu"><span>No photo yet</span></div>
-    <label class="bouton-photo" for="photo" id="libelle-photo">Take photo</label>
-    <input id="photo" type="file" accept="image/*" capture="user">
-    <div class="aide" style="margin-top:10px">Face the camera in good light. You can retake it.</div>
+  <div class="carte">
+    <div class="photo-ligne">
+      <div class="apercu" id="apercu">
+        <svg viewBox="0 0 24 24"><path d="M3 8a2 2 0 0 1 2-2h2l1.5-2h7L17 6h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="12" cy="12.5" r="3.6"/></svg>
+      </div>
+      <div class="photo-texte">
+        <label style="margin-bottom:2px">Client photo</label>
+        <div class="aide" style="margin-top:0">Face the camera in good light.</div>
+        <label class="bouton-photo" for="photo" id="libelle-photo">
+          <svg viewBox="0 0 24 24"><path d="M3 8a2 2 0 0 1 2-2h2l1.5-2h7L17 6h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="12" cy="12.5" r="3.6"/></svg>
+          <span id="texte-photo">Take photo</span>
+        </label>
+        <input id="photo" type="file" accept="image/*" capture="user">
+      </div>
+    </div>
     <div class="erreur" id="err-photo">A client photo is required.</div>
   </div>
 
@@ -269,19 +309,18 @@ footer{text-align:center;font-size:12px;color:var(--texte-doux);
   </div>
 
   <div class="carte" id="bloc-tuteur" hidden>
-    <label style="margin-bottom:12px">Legal guardian or authorized representative</label>
-    <p class="aide" style="margin:-8px 0 16px">
-      This client is under 18, so a guardian must also sign.</p>
+    <label style="margin-bottom:9px">Legal guardian or authorized representative</label>
+    <p class="aide" style="margin:-5px 0 12px">This client is under 18, so a guardian must also sign.</p>
     <div class="duo">
       <div class="champ">
         <label for="tuteur-prenom">Guardian first name</label>
-        <input id="tuteur-prenom" type="text" autocapitalize="words">
-        <div class="erreur" id="err-tuteur-prenom">Please enter the guardian first name.</div>
+        <input id="tuteur-prenom" type="text" autocapitalize="words" maxlength="40">
+        <div class="erreur" id="err-tuteur-prenom">Required.</div>
       </div>
       <div class="champ">
         <label for="tuteur-nom">Guardian last name</label>
-        <input id="tuteur-nom" type="text" autocapitalize="words">
-        <div class="erreur" id="err-tuteur-nom">Please enter the guardian last name.</div>
+        <input id="tuteur-nom" type="text" autocapitalize="words" maxlength="40">
+        <div class="erreur" id="err-tuteur-nom">Required.</div>
       </div>
     </div>
     <div class="champ">
@@ -316,9 +355,9 @@ footer{text-align:center;font-size:12px;color:var(--texte-doux);
 <section id="attente" hidden>
   <div class="centre">
     <div class="rond attente"></div>
-    <h2>Preparing your document</h2>
-    <p>Your signed consent form is being generated and saved securely.
-       This usually takes under a minute. Please keep this page open.</p>
+    <h2>Saving your consent</h2>
+    <p>Your signed document has been prepared on this device and is being filed securely.
+       Please keep this page open.</p>
   </div>
 </section>
 
@@ -326,18 +365,23 @@ footer{text-align:center;font-size:12px;color:var(--texte-doux);
   <div class="centre">
     <div class="rond fini">&#10003;</div>
     <h2>Consent signed</h2>
-    <p>Thank you. Your informed consent has been saved securely and a copy is available below.</p>
-    <a class="telecharger" id="lien-pdf" href="#" target="_blank" rel="noopener">Download your copy</a>
-    <p style="margin-top:26px"><button class="mini" type="button" id="recommencer">Start a new form</button></p>
+    <p>Thank you. Your signed consent has been filed and a copy is ready below.</p>
+    <div class="pile">
+      <button class="plein" type="button" id="telecharger">Download my copy</button>
+      <button class="vide" type="button" id="recommencer">Start a new form</button>
+    </div>
   </div>
 </section>
 
 <section id="rate" hidden>
   <div class="centre">
     <div class="rond rate">!</div>
-    <h2>We could not send it</h2>
+    <h2>We could not file it</h2>
     <p id="message-rate">Your answers are still on this page. Check the connection and try again.</p>
-    <button class="principal" type="button" id="reessayer" style="max-width:240px;margin:0 auto">Try again</button>
+    <div class="pile">
+      <button class="plein" type="button" id="reessayer">Try again</button>
+      <button class="vide" type="button" id="telecharger2">Download my copy anyway</button>
+    </div>
   </div>
 </section>
 
@@ -347,21 +391,48 @@ footer{text-align:center;font-size:12px;color:var(--texte-doux);
 </footer>
 </main>
 
+<!-- ══════════ Installation ══════════ -->
+<div id="bandeau-install" hidden>
+  <img src="icons/icon-192.png" alt="">
+  <div class="txt"><b>Install ThriveWell</b>Open it from your home screen, no link needed.</div>
+  <button type="button" id="installer">Install</button>
+  <button type="button" class="fermer" id="fermer-install" aria-label="Dismiss">&times;</button>
+</div>
+
+<div class="modale" id="modale-ios" hidden>
+  <div class="feuille">
+    <h3>Add to your Home Screen</h3>
+    <ol>
+      <li>Tap the Share button
+        <svg class="partage" viewBox="0 0 24 24" fill="none" stroke="#2E4A3D" stroke-width="1.8">
+          <path d="M12 15V3m0 0L8 7m4-4 4 4"/><path d="M5 12v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7"/>
+        </svg> at the bottom of Safari.</li>
+      <li>Scroll down and tap <strong>Add to Home Screen</strong>.</li>
+      <li>Tap <strong>Add</strong> in the top right corner.</li>
+    </ol>
+    <div class="pile"><button class="vide" type="button" id="fermer-ios">Got it</button></div>
+  </div>
+</div>
+
+<script src="vendor/jspdf.umd.min.js"></script>
 <script>
 'use strict';
 
-/* Ou part le formulaire. Le workflow repond avec le lien du PDF. */
 const WEBHOOK = 'https://n8n.srv1325858.hstgr.cloud/webhook/thrivewell-consent';
 
-/* Le document est fabrique cote serveur : copie du modele, insertion des trois
-   images, export PDF, rangement dans le Drive. Mesure sur le formulaire jumeau
-   de Hopeful Days : mediane 32 s, pire cas sain 51 s. On attend donc largement
-   au-dela, sinon on abandonne un envoi qui allait aboutir et le patient signe
-   deux fois. */
-const DELAI_MAX = 120000;
+/* Le document est fabrique ici, sur l'appareil, puis envoye deja fait. Le
+   serveur n'a plus qu'a le ranger : l'attente tombe de vingt secondes a
+   quelques secondes, et le patient tient sa copie meme si l'envoi echoue. */
+const DELAI_MAX = 60000;
 
-/* Les treize sections, dans les termes exacts de la clinique. On n'abrege pas
-   un texte de consentement : ce qui est affiche doit etre ce qui est signe. */
+const CABINET = {
+  nom: 'ThriveWell Psychiatric Collaborative Services LLC',
+  adresse: '8865 Stanford Blvd, 2nd Floor, Columbia, MD 21045',
+  contact: 'P 667.520.6074   F 667.520.6074   info@thrivewellpsych.com',
+};
+
+/* Les treize sections dans les termes exacts de la clinique. Le meme tableau
+   sert a l'ecran et au PDF : ce qui est lu est ce qui est signe. */
 const SECTIONS = [
  ['Purpose of Services',
   ['I understand that I am seeking psychiatric and mental health services, which may include evaluation, diagnosis, treatment planning, psychotherapy, medication management, care coordination, referrals, and other clinically appropriate interventions provided by qualified professionals.']],
@@ -393,66 +464,65 @@ const SECTIONS = [
 ];
 
 const $ = (id) => document.getElementById(id);
-const etats = ['etape1','etape2','etape3','attente','fini','rate'];
+const ETATS = ['etape1','etape2','etape3','attente','fini','rate'];
 
-/* ---------- Les sections de consentement ---------- */
-const hote = $('sections');
+/* ══════════ Le document a lire ══════════ */
+const lecture = $('lecture');
 SECTIONS.forEach(([titre, paras], i) => {
-  const d = document.createElement('details');
-  const s = document.createElement('summary');
-  s.innerHTML = '<span class="num">' + (i + 1) + '</span>' + titre;
-  d.appendChild(s);
-  paras.forEach(t => { const p = document.createElement('p'); p.textContent = t; d.appendChild(p); });
-  d.addEventListener('toggle', compter);
-  hote.appendChild(d);
+  const h = document.createElement('h2');
+  h.innerHTML = '<span class="puce">' + (i + 1) + '</span>' + titre;
+  lecture.appendChild(h);
+  paras.forEach(t => { const p = document.createElement('p'); p.textContent = t; lecture.appendChild(p); });
 });
-function compter(){
-  const total = SECTIONS.length;
-  const ouvertes = hote.querySelectorAll('details[open]').length;
-  $('compteur').textContent = ouvertes + ' of ' + total + ' opened';
-  $('tout-ouvrir').textContent = ouvertes === total ? 'Close all sections' : 'Open all sections';
-}
-$('tout-ouvrir').addEventListener('click', () => {
-  const tout = hote.querySelectorAll('details[open]').length === SECTIONS.length;
-  hote.querySelectorAll('details').forEach(d => { d.open = !tout; });
-  compter();
-});
-compter();
+const fin = document.createElement('div');
+fin.className = 'fin';
+fin.textContent = 'You have reached the end of the document.';
+lecture.appendChild(fin);
 
-/* ---------- Signatures ---------- */
+/* La case ne s'ouvre qu'une fois le texte parcouru jusqu'au bout. Sans cela,
+   "j'ai lu et je comprends" est une case cochee sans rien avoir lu. */
+let luJusquAuBout = false;
+function suivreLecture(){
+  const reste = lecture.scrollHeight - lecture.clientHeight;
+  const avance = reste <= 4 ? 1 : Math.min(1, lecture.scrollTop / reste);
+  $('jauge-barre').style.width = Math.round(avance * 100) + '%';
+  if (!luJusquAuBout && avance >= 0.985){
+    luJusquAuBout = true;
+    $('accepte').disabled = false;
+    $('boite-accord').classList.remove('verrouille');
+    $('jauge').classList.add('lu');
+    $('jauge-texte').textContent = 'Document read';
+  }
+}
+lecture.addEventListener('scroll', suivreLecture, {passive:true});
+window.addEventListener('resize', suivreLecture);
+
+/* ══════════ Signatures ══════════ */
 function signature(idCanvas, idBoite){
   const c = $(idCanvas), boite = $(idBoite), ctx = c.getContext('2d');
   let trace = false, vide = true;
-
-  /* Le canvas est redimensionne a la taille reelle affichee, sinon le trait est
-     flou sur mobile et decale par rapport au doigt. */
   function dimensionner(){
     const sauve = vide ? null : c.toDataURL();
     const r = c.getBoundingClientRect(), d = window.devicePixelRatio || 1;
+    if (!r.width) return;
     c.width = r.width * d; c.height = r.height * d;
     ctx.scale(d, d);
-    ctx.lineWidth = 2.2; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
-    ctx.strokeStyle = '#22302A';
-    if (sauve) { const im = new Image(); im.onload = () => ctx.drawImage(im, 0, 0, r.width, r.height); im.src = sauve; }
+    ctx.lineWidth = 2.2; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.strokeStyle = '#22302A';
+    if (sauve){ const im = new Image(); im.onload = () => ctx.drawImage(im, 0, 0, r.width, r.height); im.src = sauve; }
   }
-  const point = (e) => {
-    const r = c.getBoundingClientRect();
-    return [e.clientX - r.left, e.clientY - r.top];
-  };
+  const point = (e) => { const r = c.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; };
   c.addEventListener('pointerdown', e => {
     e.preventDefault(); trace = true; c.setPointerCapture(e.pointerId);
     const [x, y] = point(e); ctx.beginPath(); ctx.moveTo(x, y);
-    if (vide) { vide = false; boite.classList.add('signee'); boite.classList.remove('faux'); }
+    if (vide){ vide = false; boite.classList.add('signee'); boite.classList.remove('faux'); }
   });
   c.addEventListener('pointermove', e => {
     if (!trace) return; e.preventDefault();
     const [x, y] = point(e); ctx.lineTo(x, y); ctx.stroke();
   });
-  ['pointerup','pointercancel','pointerleave'].forEach(t =>
-    c.addEventListener(t, () => { trace = false; }));
+  ['pointerup','pointercancel','pointerleave'].forEach(t => c.addEventListener(t, () => { trace = false; }));
   window.addEventListener('resize', dimensionner);
   setTimeout(dimensionner, 0);
-
   return {
     vide: () => vide,
     donnee: () => vide ? '' : c.toDataURL('image/png'),
@@ -466,7 +536,74 @@ document.querySelectorAll('[data-efface]').forEach(b => b.addEventListener('clic
   (b.dataset.efface === 'sig-client' ? sigClient : sigTuteur).effacer();
 }));
 
-/* ---------- Photo ---------- */
+/* ══════════ Saisies guidees ══════════ */
+/* Un selecteur de date natif affiche le format du telephone, pas celui du
+   cabinet : sur un appareil regle en francais il propose jj/mm/aaaa a un
+   patient du Maryland. On saisit donc au clavier numerique, en MM/DD/YYYY. */
+const champDate = $('naissance');
+champDate.addEventListener('input', () => {
+  const c = champDate.value.replace(/\D/g, '').slice(0, 8);
+  let v = c.slice(0, 2);
+  if (c.length > 2) v += ' / ' + c.slice(2, 4);
+  if (c.length > 4) v += ' / ' + c.slice(4, 8);
+  champDate.value = v;
+  jugerDate();
+});
+function chiffresDate(){ return champDate.value.replace(/\D/g, ''); }
+function dateValide(){
+  const c = chiffresDate();
+  if (c.length !== 8) return null;
+  const m = +c.slice(0, 2), j = +c.slice(2, 4), a = +c.slice(4, 8);
+  if (m < 1 || m > 12 || j < 1 || a < 1900) return null;
+  const d = new Date(a, m - 1, j);
+  // Le 31 fevrier deviendrait le 3 mars : on verifie que la date existe.
+  if (d.getFullYear() !== a || d.getMonth() !== m - 1 || d.getDate() !== j) return null;
+  if (d > new Date()) return null;
+  return d;
+}
+let mineur = false;
+function jugerDate(){
+  const d = dateValide();
+  champDate.classList.toggle('bon', !!d);
+  if (d) champDate.classList.remove('faux');
+  if (!d){
+    mineur = false; $('bloc-tuteur').hidden = true;
+    $('aide-age').textContent = 'Type the numbers only, the slashes appear on their own.';
+    return;
+  }
+  const a = new Date();
+  let ans = a.getFullYear() - d.getFullYear();
+  const m = a.getMonth() - d.getMonth();
+  if (m < 0 || (m === 0 && a.getDate() < d.getDate())) ans--;
+  mineur = ans < 18;
+  $('aide-age').textContent = mineur
+    ? 'Under 18: a guardian will also need to sign at the last step.'
+    : 'Age ' + ans + '. No guardian signature needed.';
+  $('bloc-tuteur').hidden = !mineur;
+  if (mineur) setTimeout(() => sigTuteur.redimensionner(), 0);
+  cacher('err-naissance');
+}
+
+const champTel = $('telephone');
+champTel.addEventListener('input', () => {
+  const c = champTel.value.replace(/\D/g, '').slice(0, 10);
+  let v = c;
+  if (c.length > 6) v = '(' + c.slice(0,3) + ') ' + c.slice(3,6) + '-' + c.slice(6);
+  else if (c.length > 3) v = '(' + c.slice(0,3) + ') ' + c.slice(3);
+  else if (c.length > 0) v = '(' + c;
+  champTel.value = v;
+  const n = c.length;
+  champTel.classList.toggle('bon', n === 10);
+  if (n === 0 || n === 10) { champTel.classList.remove('faux'); cacher('err-telephone'); }
+});
+$('dossier').addEventListener('input', () => {
+  $('dossier').value = $('dossier').value.replace(/[^\w-]/g, '').toUpperCase();
+});
+['prenom','nom'].forEach(id => $(id).addEventListener('input', () => {
+  $('nom-imprime').textContent = ($('prenom').value.trim() + ' ' + $('nom').value.trim()).trim() || '—';
+}));
+
+/* ══════════ Photo ══════════ */
 let photoData = '';
 $('photo').addEventListener('change', (e) => {
   const f = e.target.files && e.target.files[0];
@@ -475,9 +612,8 @@ $('photo').addEventListener('change', (e) => {
   lecteur.onload = () => {
     const im = new Image();
     im.onload = () => {
-      /* Une photo de telephone pese plusieurs mega-octets. Envoyee telle quelle
-         en base64, elle fait echouer la requete sur une connexion de cabinet.
-         On la ramene a la taille reellement utile dans le PDF. */
+      /* Une photo de telephone pese plusieurs mega-octets. On la ramene a la
+         taille reellement utile dans le document. */
       const max = 900, ech = Math.min(1, max / Math.max(im.width, im.height));
       const cv = document.createElement('canvas');
       cv.width = Math.round(im.width * ech); cv.height = Math.round(im.height * ech);
@@ -486,7 +622,7 @@ $('photo').addEventListener('change', (e) => {
       const a = $('apercu');
       a.innerHTML = ''; a.classList.add('pris');
       const vue = new Image(); vue.src = photoData; a.appendChild(vue);
-      $('libelle-photo').textContent = 'Retake photo';
+      $('texte-photo').textContent = 'Retake';
       cacher('err-photo');
     };
     im.src = lecteur.result;
@@ -494,45 +630,21 @@ $('photo').addEventListener('change', (e) => {
   lecteur.readAsDataURL(f);
 });
 
-/* ---------- Validation ---------- */
+/* ══════════ Validation ══════════ */
 const montrer = (id) => $(id).classList.add('visible');
 const cacher = (id) => $(id).classList.remove('visible');
-function marquer(champ, faux){ $(champ).classList.toggle('faux', faux); }
-
-function ageEnAnnees(iso){
-  const n = new Date(iso + 'T00:00:00');
-  if (isNaN(n)) return null;
-  const a = new Date();
-  let ans = a.getFullYear() - n.getFullYear();
-  const m = a.getMonth() - n.getMonth();
-  if (m < 0 || (m === 0 && a.getDate() < n.getDate())) ans--;
-  return ans;
-}
-let mineur = false;
-
-$('naissance').addEventListener('change', () => {
-  const ans = ageEnAnnees($('naissance').value);
-  mineur = ans !== null && ans < 18;
-  $('aide-age').textContent = ans === null ? 'Used to confirm whether a guardian signature is needed.'
-    : mineur ? 'Under 18: a guardian will also need to sign at the last step.'
-             : 'Age ' + ans + '. No guardian signature needed.';
-  $('bloc-tuteur').hidden = !mineur;
-  if (mineur) setTimeout(() => sigTuteur.redimensionner(), 0);
-});
-['prenom','nom'].forEach(id => $(id).addEventListener('input', () => {
-  $('nom-imprime').textContent = ($('prenom').value.trim() + ' ' + $('nom').value.trim()).trim() || '—';
-}));
+const marquer = (c, faux) => $(c).classList.toggle('faux', faux);
 
 function valide1(){
   let ok = true;
   [['prenom','err-prenom'],['nom','err-nom']].forEach(([c, e]) => {
-    const vide = !$(c).value.trim();
+    const vide = $(c).value.trim().length < 2;
     marquer(c, vide); vide ? montrer(e) : cacher(e); if (vide) ok = false;
   });
-  const ans = ageEnAnnees($('naissance').value);
-  const mauvais = ans === null || ans < 0 || ans > 120;
-  marquer('naissance', mauvais); mauvais ? montrer('err-naissance') : cacher('err-naissance');
-  return ok && !mauvais;
+  if (!dateValide()){ marquer('naissance', true); montrer('err-naissance'); ok = false; }
+  const n = champTel.value.replace(/\D/g, '').length;
+  if (n > 0 && n < 10){ marquer('telephone', true); montrer('err-telephone'); ok = false; }
+  return ok;
 }
 function valide2(){
   const ok = $('accepte').checked;
@@ -542,38 +654,36 @@ function valide2(){
 }
 function valide3(){
   let ok = true;
-  if (!photoData) { montrer('err-photo'); ok = false; } else cacher('err-photo');
-  if (sigClient.vide()) { $('boite-client').classList.add('faux'); montrer('err-sig-client'); ok = false; }
+  if (!photoData){ montrer('err-photo'); ok = false; } else cacher('err-photo');
+  if (sigClient.vide()){ $('boite-client').classList.add('faux'); montrer('err-sig-client'); ok = false; }
   else cacher('err-sig-client');
   if (mineur){
     [['tuteur-prenom','err-tuteur-prenom'],['tuteur-nom','err-tuteur-nom']].forEach(([c, e]) => {
-      const vide = !$(c).value.trim();
+      const vide = $(c).value.trim().length < 2;
       marquer(c, vide); vide ? montrer(e) : cacher(e); if (vide) ok = false;
     });
     const sansLien = !$('lien-parente').value;
     marquer('lien-parente', sansLien); sansLien ? montrer('err-lien') : cacher('err-lien');
     if (sansLien) ok = false;
-    if (sigTuteur.vide()) { $('boite-tuteur').classList.add('faux'); montrer('err-sig-tuteur'); ok = false; }
+    if (sigTuteur.vide()){ $('boite-tuteur').classList.add('faux'); montrer('err-sig-tuteur'); ok = false; }
     else cacher('err-sig-tuteur');
   }
   return ok;
 }
 
-/* ---------- Navigation ---------- */
 $('accepte').addEventListener('change', e =>
   $('boite-accord').classList.toggle('coche', e.target.checked));
 
 function aller(nom){
-  etats.forEach(e => { $(e).hidden = (e !== nom); });
-  const n = { etape1: 0, etape2: 1, etape3: 2 }[nom];
-  const barres = $('progression').children;
+  ETATS.forEach(e => { $(e).hidden = (e !== nom); });
+  const n = {etape1:0, etape2:1, etape3:2}[nom];
   $('progression').hidden = n === undefined;
   if (n !== undefined){
-    for (let i = 0; i < barres.length; i++){
-      barres[i].className = i < n ? 'faite' : (i === n ? 'ici' : '');
-    }
+    const b = $('progression').children;
+    for (let i = 0; i < b.length; i++) b[i].className = i < n ? 'faite' : (i === n ? 'ici' : '');
   }
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo(0, 0);
+  if (nom === 'etape2') suivreLecture();
   if (nom === 'etape3'){ sigClient.redimensionner(); if (mineur) sigTuteur.redimensionner(); }
 }
 document.querySelectorAll('[data-va]').forEach(b => b.addEventListener('click', () => {
@@ -583,59 +693,209 @@ document.querySelectorAll('[data-va]').forEach(b => b.addEventListener('click', 
   aller('etape' + cible);
 }));
 
-/* ---------- Envoi ---------- */
-function charge(){
-  const prenom = $('prenom').value.trim(), nom = $('nom').value.trim();
-  const corps = {
-    client: {
-      fullName: prenom + ' ' + nom,
-      firstName: prenom, lastName: nom,
-      dateOfBirth: $('naissance').value,
-      phoneNumber: $('telephone').value.trim(),
-      medicalRecordNumber: $('dossier').value.trim(),
-      photo: photoData,
-      signature: sigClient.donnee(),
-    },
-    meta: { isMinor: mineur, submittedAt: new Date().toISOString() },
-  };
-  if (mineur){
-    corps.guardian = {
-      fullName: ($('tuteur-prenom').value.trim() + ' ' + $('tuteur-nom').value.trim()).trim(),
-      relationshipToClient: $('lien-parente').value,
-      signature: sigTuteur.donnee(),
-    };
+/* ══════════ Le document signe ══════════ */
+let logoData = '';
+fetch('assets/thrivewell-logo.png').then(r => r.blob()).then(b => {
+  const fr = new FileReader(); fr.onload = () => { logoData = fr.result; }; fr.readAsDataURL(b);
+}).catch(() => {});
+
+const VERT = [46, 74, 61], OR = [176, 141, 63], GRIS = [99, 112, 106], NOIR = [34, 48, 42];
+
+function construirePdf(d){
+  const {jsPDF} = window.jspdf;
+  const doc = new jsPDF({unit:'pt', format:'letter'});
+  const L = 54, LARG = 612, HAUT = 792, UTILE = LARG - L*2;
+  let y = 0;
+
+  /* Le bandeau reprend le vert et l'or de la marque, et le logo porte sa
+     propre typographie : le document doit se reconnaitre au premier coup d'oeil
+     comme venant de ce cabinet. */
+  function bandeau(){
+    doc.setFillColor(...VERT); doc.rect(0, 0, LARG, 6, 'F');
+    doc.setFillColor(...OR); doc.rect(0, 6, LARG, 1.6, 'F');
+    y = 34;
+    if (logoData){
+      try { doc.addImage(logoData, 'PNG', L, y, 108, 75); } catch(e){}
+    }
+    const x = L + 124;
+    doc.setFont('times', 'bold'); doc.setFontSize(16); doc.setTextColor(...VERT);
+    doc.text('INFORMED CONSENT', x, y + 20);
+    doc.setFont('times', 'normal'); doc.setFontSize(11.5); doc.setTextColor(...GRIS);
+    doc.text('for psychiatric and mental health services', x, y + 36);
+    doc.setFont('helvetica', 'bold'); doc.setFontSize(8.4); doc.setTextColor(...VERT);
+    doc.text(CABINET.nom, x, y + 55);
+    doc.setFont('helvetica', 'normal'); doc.setTextColor(...GRIS); doc.setFontSize(7.8);
+    doc.text(CABINET.adresse, x, y + 66);
+    doc.text(CABINET.contact, x, y + 76);
+    y = 124;
+    doc.setDrawColor(...OR); doc.setLineWidth(.8); doc.line(L, y, LARG - L, y);
+    y += 20;
   }
-  return corps;
+  function pied(){
+    const n = doc.internal.getNumberOfPages();
+    for (let i = 1; i <= n; i++){
+      doc.setPage(i);
+      doc.setDrawColor(230, 226, 216); doc.setLineWidth(.6);
+      doc.line(L, HAUT - 44, LARG - L, HAUT - 44);
+      doc.setFont('helvetica', 'normal'); doc.setFontSize(7.2); doc.setTextColor(150, 158, 152);
+      doc.text('Confidential — protected health information.', L, HAUT - 31);
+      doc.text('ThriveWell Psychiatric Collaborative  ·  Page ' + i + ' of ' + n,
+               LARG - L, HAUT - 31, {align:'right'});
+    }
+  }
+  function place(h){
+    if (y + h > HAUT - 62){ doc.addPage(); y = 52; return true; }
+    return false;
+  }
+  function titre(t, num){
+    place(38);
+    doc.setFont('helvetica', 'bold'); doc.setFontSize(7.4); doc.setTextColor(...OR);
+    if (num) doc.text(String(num).padStart(2, '0'), L, y);
+    doc.setFont('times', 'bold'); doc.setFontSize(12.5); doc.setTextColor(...VERT);
+    doc.text(t, L + (num ? 20 : 0), y);
+    y += 15;
+  }
+  function corps(t){
+    doc.setFont('helvetica', 'normal'); doc.setFontSize(9); doc.setTextColor(...GRIS);
+    doc.splitTextToSize(t, UTILE).forEach(ligne => {
+      place(13);
+      doc.text(ligne, L, y); y += 12.2;
+    });
+    y += 7;
+  }
+
+  bandeau();
+
+  /* Encadre d'identite, avec la photo a droite. */
+  const hautBoite = y, hBoite = 108;
+  doc.setFillColor(250, 248, 244); doc.setDrawColor(235, 223, 196);
+  doc.roundedRect(L, hautBoite, UTILE, hBoite, 6, 6, 'FD');
+  const paire = (l, v, cx, cy) => {
+    doc.setFont('helvetica', 'bold'); doc.setFontSize(6.8); doc.setTextColor(...OR);
+    doc.text(l.toUpperCase(), cx, cy);
+    doc.setFont('helvetica', 'normal'); doc.setFontSize(10); doc.setTextColor(...NOIR);
+    doc.text(String(v || '—'), cx, cy + 12);
+  };
+  const cx = L + 16;
+  paire('Client name', d.fullName, cx, hautBoite + 20);
+  paire('Date of birth', d.dateOfBirth, cx, hautBoite + 48);
+  paire('Phone number', d.phoneNumber, cx, hautBoite + 76);
+  const cx2 = L + 190;
+  paire('Record number', d.medicalRecordNumber, cx2, hautBoite + 20);
+  paire('Date signed', d.dateSigned, cx2, hautBoite + 48);
+  paire('Reference', d.reference, cx2, hautBoite + 76);
+  if (d.photo){
+    try {
+      const px = LARG - L - 90, py = hautBoite + 12;
+      doc.setFillColor(255, 255, 255); doc.setDrawColor(...VERT); doc.setLineWidth(.8);
+      doc.roundedRect(px - 3, py - 3, 74, 90, 4, 4, 'FD');
+      doc.addImage(d.photo, 'JPEG', px, py, 68, 84);
+    } catch(e){}
+  }
+  y = hautBoite + hBoite + 24;
+
+  SECTIONS.forEach(([t, paras], i) => { titre(t, i + 1); paras.forEach(corps); });
+
+  /* Signatures : jamais coupees entre deux pages. */
+  if (y + 190 > HAUT - 62){ doc.addPage(); y = 52; }
+  y += 6;
+  doc.setDrawColor(...OR); doc.setLineWidth(.8); doc.line(L, y, LARG - L, y); y += 20;
+  titre('Signatures');
+  const ligneSignature = (etiquette, image, nom, sous) => {
+    doc.setFont('helvetica', 'bold'); doc.setFontSize(6.8); doc.setTextColor(...OR);
+    doc.text(etiquette.toUpperCase(), L, y);
+    if (image){ try { doc.addImage(image, 'PNG', L, y + 6, 150, 46); } catch(e){} }
+    doc.setDrawColor(215, 210, 200); doc.setLineWidth(.7);
+    doc.line(L, y + 56, L + 220, y + 56);
+    doc.setFont('helvetica', 'normal'); doc.setFontSize(9); doc.setTextColor(...NOIR);
+    doc.text(nom || '—', L, y + 68);
+    if (sous){
+      doc.setFontSize(7.6); doc.setTextColor(...GRIS);
+      doc.text(sous, L, y + 79);
+    }
+    doc.setFontSize(7.6); doc.setTextColor(...GRIS);
+    doc.text('Signed ' + d.dateSigned, L + 260, y + 68);
+    y += 96;
+  };
+  ligneSignature('Client signature', d.signature, d.fullName);
+  if (d.guardianSignature){
+    ligneSignature('Legal guardian or authorized representative',
+                   d.guardianSignature, d.guardianName,
+                   'Relationship to client: ' + d.guardianRelationship);
+  }
+  pied();
+  return doc;
+}
+
+/* ══════════ Envoi ══════════ */
+let dernierPdf = null, dernierNom = '';
+
+function donnees(){
+  const prenom = $('prenom').value.trim(), nom = $('nom').value.trim();
+  const c = chiffresDate();
+  const maintenant = new Date();
+  return {
+    fullName: prenom + ' ' + nom, firstName: prenom, lastName: nom,
+    dateOfBirth: c.slice(0,2) + '/' + c.slice(2,4) + '/' + c.slice(4,8),
+    phoneNumber: champTel.value.trim(),
+    medicalRecordNumber: $('dossier').value.trim(),
+    photo: photoData,
+    signature: sigClient.donnee(),
+    guardianName: mineur ? ($('tuteur-prenom').value.trim() + ' ' + $('tuteur-nom').value.trim()).trim() : '',
+    guardianRelationship: mineur ? $('lien-parente').value : '',
+    guardianSignature: mineur ? sigTuteur.donnee() : '',
+    isMinor: mineur,
+    dateSigned: maintenant.toLocaleDateString('en-US', {timeZone:'America/New_York'}),
+    timeSigned: maintenant.toLocaleTimeString('en-US', {timeZone:'America/New_York', hour12:false}),
+    reference: 'TW-' + maintenant.getFullYear()
+             + String(maintenant.getMonth()+1).padStart(2,'0')
+             + String(maintenant.getDate()).padStart(2,'0') + '-'
+             + Math.random().toString(36).slice(2, 6).toUpperCase(),
+    submittedAt: maintenant.toISOString(),
+  };
 }
 
 async function envoyer(){
   if (!valide3()) return;
+  const d = donnees();
+
+  /* Le document est fabrique avant tout affichage, parce que c'est lui le
+     dossier. S'il ne peut pas etre produit, il n'y a rien a classer, et le dire
+     vaut mieux que ranger un consentement sans preuve dedans. */
+  let pdfB64 = '';
+  try {
+    dernierPdf = construirePdf(d);
+    dernierNom = d.fullName.replace(/[^\w\s-]/g, '').trim() + ' - informed consent';
+    pdfB64 = dernierPdf.output('datauristring').split(',')[1];
+  } catch (e){
+    dernierPdf = null;
+    $('message-rate').textContent = 'The signed document could not be prepared on this device. '
+      + 'Nothing has been sent. Please try again.';
+    aller('rate');
+    return;
+  }
+
   aller('attente');
   const stop = new AbortController();
   const minuteur = setTimeout(() => stop.abort(), DELAI_MAX);
+  const corps = Object.assign({}, d, {pdf: pdfB64, pdfFileName: dernierNom + '.pdf'});
+  delete corps.photo; delete corps.signature; delete corps.guardianSignature;
+
   try {
     const r = await fetch(WEBHOOK, {
-      method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(charge()), signal: stop.signal,
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify(corps), signal: stop.signal,
     });
     clearTimeout(minuteur);
     if (!r.ok) throw new Error('HTTP ' + r.status);
-
-    /* Un 200 ne prouve pas qu'un document existe : si la chaine s'interrompt en
-       route, la reponse revient vide. Annoncer "signe" dans ce cas donnerait un
-       consentement qui n'existe nulle part. On exige donc le lien du PDF. */
-    let lien = '';
-    try { lien = (await r.clone().json()).download || ''; }
-    catch (_) { lien = (await r.text()).trim(); }
-    if (!/^https?:\/\//.test(lien)) throw new Error('reponse sans document');
-    $('lien-pdf').href = lien;
+    let ok = false;
+    try { ok = (await r.clone().json()).ok === true; } catch (_) { ok = (await r.text()).length > 0; }
+    if (!ok) throw new Error('reponse vide');
     aller('fini');
-  } catch (e) {
+  } catch (e){
     clearTimeout(minuteur);
     $('message-rate').textContent = e.name === 'AbortError'
-      ? 'The server took too long to answer. Your answers are still on this page, you can try again.'
-      : e.message === 'reponse sans document'
-      ? 'The form was received but no document came back, so nothing has been signed yet. Your answers are still on this page. Please try again.'
+      ? 'The server took too long to answer. Your copy is ready below, and you can try again.'
       : 'Your answers are still on this page. Check the connection and try again.';
     aller('rate');
   }
@@ -643,13 +903,55 @@ async function envoyer(){
 $('envoyer').addEventListener('click', envoyer);
 $('reessayer').addEventListener('click', () => aller('etape3'));
 $('recommencer').addEventListener('click', () => location.reload());
+const telecharger = () => { if (dernierPdf) dernierPdf.save(dernierNom + '.pdf'); };
+$('telecharger').addEventListener('click', telecharger);
+$('telecharger2').addEventListener('click', telecharger);
 
-/* Un formulaire a moitie rempli ne doit pas partir a cause d'un geste de retour. */
 window.addEventListener('beforeunload', (e) => {
   if (!$('etape1').hidden && !$('prenom').value.trim()) return;
   if (!$('fini').hidden) return;
   e.preventDefault(); e.returnValue = '';
 });
+
+/* ══════════ Installation sur l'ecran d'accueil ══════════ */
+const CLE_INSTALL = 'tw_install_masque';
+let invite = null;
+const installee = () => window.matchMedia('(display-mode: standalone)').matches
+                     || window.navigator.standalone === true;
+const estIos = /iphone|ipad|ipod/i.test(navigator.userAgent)
+            || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+function proposerInstallation(){
+  let masque = false;
+  try { masque = localStorage.getItem(CLE_INSTALL) === '1'; } catch (_) {}
+  if (masque || installee()) return;
+  if (invite || estIos) $('bandeau-install').hidden = false;
+}
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault(); invite = e; proposerInstallation();
+});
+$('installer').addEventListener('click', async () => {
+  if (invite){
+    $('bandeau-install').hidden = true;
+    invite.prompt(); await invite.userChoice; invite = null;
+  } else {
+    // iOS n'expose aucune invite : on montre le chemin exact, c'est tout ce
+    // qu'une page web peut faire.
+    $('modale-ios').hidden = false;
+  }
+});
+$('fermer-ios').addEventListener('click', () => { $('modale-ios').hidden = true; });
+$('fermer-install').addEventListener('click', () => {
+  $('bandeau-install').hidden = true;
+  try { localStorage.setItem(CLE_INSTALL, '1'); } catch (_) {}
+});
+setTimeout(proposerInstallation, 2500);
+
+if ('serviceWorker' in navigator){
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('service-worker.js').catch(() => {});
+  });
+}
 </script>
 </body>
 </html>
