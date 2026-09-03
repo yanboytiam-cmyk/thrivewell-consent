@@ -611,7 +611,7 @@ $('dossier').addEventListener('input', () => {
 }));
 
 /* ══════════ Photo ══════════ */
-let photoData = '';
+let photoData = '', photoDim = null;
 $('photo').addEventListener('change', (e) => {
   const f = e.target.files && e.target.files[0];
   if (!f) return;
@@ -626,6 +626,9 @@ $('photo').addEventListener('change', (e) => {
       cv.width = Math.round(im.width * ech); cv.height = Math.round(im.height * ech);
       cv.getContext('2d').drawImage(im, 0, 0, cv.width, cv.height);
       photoData = cv.toDataURL('image/jpeg', 0.82);
+      /* On garde ses proportions : posee en grand dans le document, une photo
+         etiree se voit tout de suite. */
+      photoDim = { w: cv.width, h: cv.height };
       const a = $('apercu');
       a.innerHTML = ''; a.classList.add('pris');
       const vue = new Image(); vue.src = photoData; a.appendChild(vue);
@@ -774,7 +777,11 @@ function construirePdf(d){
   bandeau();
 
   /* Encadre d'identite, avec la photo a droite. */
-  const hautBoite = y, hBoite = 108;
+  /* La photo du client est ce que le cabinet regarde en premier quand il
+     rouvre un dossier : elle passe du simple au double, et l'encadre grandit
+     avec elle plutot que de la comprimer. */
+  const PHOTO_L = 136, PHOTO_H = 168;
+  const hautBoite = y, hBoite = 192;
   doc.setFillColor(250, 248, 244); doc.setDrawColor(235, 223, 196);
   doc.roundedRect(L, hautBoite, UTILE, hBoite, 6, 6, 'FD');
   const paire = (l, v, cx, cy) => {
@@ -784,23 +791,29 @@ function construirePdf(d){
     doc.text(String(v || '—'), cx, cy + 12);
   };
   const cx = L + 16;
-  paire('Client name', d.fullName, cx, hautBoite + 20);
-  paire('Date of birth', d.dateOfBirth, cx, hautBoite + 48);
-  paire('Phone number', d.phoneNumber, cx, hautBoite + 76);
+  paire('Client name', d.fullName, cx, hautBoite + 34);
+  paire('Date of birth', d.dateOfBirth, cx, hautBoite + 92);
+  paire('Phone number', d.phoneNumber, cx, hautBoite + 150);
   const cx2 = L + 190;
-  paire('Record number', d.medicalRecordNumber, cx2, hautBoite + 20);
+  paire('Record number', d.medicalRecordNumber, cx2, hautBoite + 34);
   /* L'heure fait partie de la signature, pas du confort : c'est elle qui situe
      le consentement par rapport a la consultation. Le fuseau est ecrit en
      clair, sinon une heure seule ne veut rien dire dans un dossier. */
   paire('Date signed', d.dateSigned + '  ' + d.timeSigned + ' ' + d.fuseau,
-        cx2, hautBoite + 48);
-  paire('Reference', d.reference, cx2, hautBoite + 76);
+        cx2, hautBoite + 92);
+  paire('Reference', d.reference, cx2, hautBoite + 150);
   if (d.photo){
     try {
-      const px = LARG - L - 90, py = hautBoite + 12;
+      const px = LARG - L - (PHOTO_L + 14), py = hautBoite + 12;
       doc.setFillColor(255, 255, 255); doc.setDrawColor(...VERT); doc.setLineWidth(.8);
-      doc.roundedRect(px - 3, py - 3, 74, 90, 4, 4, 'FD');
-      doc.addImage(d.photo, 'JPEG', px, py, 68, 84);
+      doc.roundedRect(px - 4, py - 4, PHOTO_L + 8, PHOTO_H + 8, 4, 4, 'FD');
+      /* Centree dans son cadre, a ses proportions d'origine. */
+      const ech = photoDim
+        ? Math.min(PHOTO_L / photoDim.w, PHOTO_H / photoDim.h) : 0;
+      const pw = ech ? photoDim.w * ech : PHOTO_L;
+      const ph = ech ? photoDim.h * ech : PHOTO_H;
+      doc.addImage(d.photo, 'JPEG', px + (PHOTO_L - pw) / 2,
+                   py + (PHOTO_H - ph) / 2, pw, ph);
     } catch(e){}
   }
   y = hautBoite + hBoite + 24;
